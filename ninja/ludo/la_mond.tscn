@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://grafikajxoj/fono.png" type="Texture" id=1]
+[ext_resource path="res://scenoj/fona_kontajnero.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenoj/ningxao.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenoj/lampo_blua.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenoj/planedo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenoj/tusxebla_kontajnero.tscn" type="PackedScene" id=6]
+
+[node name="la_mond" type="Node2D" index="0"]
+
+position = Vector2( 488.325, 340.048 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="fono" type="Sprite" parent="." index="0"]
+
+position = Vector2( 152.678, 24.1873 )
+scale = Vector2( 295.359, 169.208 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="fona_kontajnero" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 29.5784, -9.77911 )
+rotation = -1.0472
+
+[node name="ningxao" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 160.201, -102.978 )
+
+[node name="Camera2D" type="Camera2D" parent="ningxao" index="3"]
+
+position = Vector2( 0.422791, 0.173996 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = true
+smoothing_speed = 0.5
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Editor", "Smoothing", "Transform" ]
+
+[node name="lampo_blua" parent="." index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 160.139, -119.781 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="lampo_blua2" parent="." index="4" instance=ExtResource( 4 )]
+
+position = Vector2( -7.68838, 12.2189 )
+rotation = -1.309
+_sections_unfolded = [ "Transform" ]
+
+[node name="planedo" parent="." index="5" groups=[
+"planedoj",
+] instance=ExtResource( 5 )]
+
+position = Vector2( 160.64, 64.9391 )
+collision_layer = 3
+_sections_unfolded = [ "Collision" ]
+
+[node name="tusxebla_kontajnero" parent="." index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 296.11, 66.5515 )
+rotation = 1.5708
+
+

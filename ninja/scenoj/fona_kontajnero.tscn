@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://grafikajxoj/kontajnero_fona.png" type="Texture" id=1]
+
+[node name="fona_kontajnero" type="Sprite"]
+
+position = Vector2( 0, -15.5073 )
+texture = ExtResource( 1 )
+
+
