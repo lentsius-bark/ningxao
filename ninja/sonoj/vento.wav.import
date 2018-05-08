@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/vento.wav-80678078d51a64607f5eadc4131925b9.sample"
+
+[deps]
+
+source_file="res://sonoj/vento.wav"
+source_md5="dc712e1e114b93573708d67db3a6667d"
+
+dest_files=[ "res://.import/vento.wav-80678078d51a64607f5eadc4131925b9.sample" ]
+dest_md5="bebce041321996763b85dd2932983fde"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

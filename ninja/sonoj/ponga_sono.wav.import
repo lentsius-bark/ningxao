@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ponga_sono.wav-38efc8b5fe2cbc048b79ffd122402c78.sample"
+
+[deps]
+
+source_file="res://sonoj/ponga_sono.wav"
+source_md5="7d64d065966725f5fbf286d626e874cc"
+
+dest_files=[ "res://.import/ponga_sono.wav-38efc8b5fe2cbc048b79ffd122402c78.sample" ]
+dest_md5="9d4b9777003adfc6a1f55873c52f1b5d"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

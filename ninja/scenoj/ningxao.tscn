@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://skriptoj/ningxao.gd" type="Script" id=1]
 [ext_resource path="res://grafikajxoj/ningxao.png" type="Texture" id=2]
+[ext_resource path="res://grafikajxoj/lumo.png" type="Texture" id=3]
+[ext_resource path="res://sonoj/vento.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 5.0476, 13.9778 )
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 300.0
 
 [node name="ningxao" type="KinematicBody2D"]
 
@@ -32,13 +39,65 @@ exclude_parent = true
 cast_to = Vector2( 0, 100 )
 collision_mask = 2
 
-[node name="linio" type="Line2D" parent="." index="3"]
+[node name="radi_elsendo_dua" type="RayCast2D" parent="." index="3"]
 
-points = PoolVector2Array( 0, 0, 0, 10 )
-width = 1.0
-default_color = Color( 0.914062, 0.25708, 0.25708, 1 )
-texture_mode = 464145440
-sharp_limit = 2.0
-round_precision = 8
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 100 )
+collision_mask = 2
+
+[node name="Light2D" type="Light2D" parent="." index="4"]
+
+position = Vector2( 0.185341, -0.247128 )
+enabled = true
+editor_only = false
+texture = ExtResource( 3 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="." index="5"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="ventsono" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 4 )
+volume_db = -20.0
+autoplay = true
+mix_target = 0
+bus = "vento"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+
+[connection signal="finished" from="ventsono" to="." method="_on_ventsono_finished"]
 
 

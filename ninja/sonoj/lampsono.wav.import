@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lampsono.wav-f5f589ed6fc9641683baffa81c5e561b.sample"
+
+[deps]
+
+source_file="res://sonoj/lampsono.wav"
+source_md5="bff9ef29eee92fbed9d1a02b1d86893e"
+
+dest_files=[ "res://.import/lampsono.wav-f5f589ed6fc9641683baffa81c5e561b.sample" ]
+dest_md5="a75ddb3c25394e7ea6f06b9ef8d13f98"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -14,6 +14,10 @@ config/name="ninja"
 run/main_scene="res://ludo/la_mond.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+globala="*res://skriptoj/globala.gd"
+
 [display]
 
 window/size/width=1280

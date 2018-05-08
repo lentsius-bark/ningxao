@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://grafikajxoj/saltbutono.png" type="Texture" id=1]
-[ext_resource path="res://grafikajxoj/saltpado.png" type="Texture" id=2]
+[ext_resource path="res://skriptoj/saltpado.gd" type="Script" id=1]
+[ext_resource path="res://grafikajxoj/saltbutono.png" type="Texture" id=2]
+[ext_resource path="res://grafikajxoj/saltpado.png" type="Texture" id=3]
+[ext_resource path="res://grafikajxoj/salt_rampo.png" type="Texture" id=4]
+[ext_resource path="res://sonoj/ponga_sono.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 6.43151, 3.40767 )
+extents = Vector2( 3.375, 3.40767 )
 
-[node name="saltpado" type="StaticBody2D"]
+[node name="saltpado" type="StaticBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -17,6 +20,8 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+script = ExtResource( 1 )
+forteco = 3000
 
 [node name="padkolizia_formo" type="CollisionPolygon2D" parent="." index="0"]
 
@@ -26,14 +31,21 @@ polygon = PoolVector2Array( -19.5787, 0.253304, -12.1031, -4.25678, 11.4359, -4.
 [node name="butono_grafikajxo" type="Sprite" parent="." index="1"]
 
 position = Vector2( 0, -5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="pado" type="Sprite" parent="." index="2"]
 
 position = Vector2( 0, -2 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
-[node name="Area2D" type="Area2D" parent="." index="3"]
+[node name="salt_rampo" type="Sprite" parent="." index="3"]
+
+visible = false
+position = Vector2( 0, -24.327 )
+scale = Vector2( 1, 1.40754 )
+texture = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="." index="4"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -47,5 +59,17 @@ audio_bus_name = "Master"
 
 position = Vector2( 0, -3.56752 )
 shape = SubResource( 1 )
+
+[node name="sono" type="AudioStreamPlayer2D" parent="." index="5"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+autoplay = false
+max_distance = 500.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 
 

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/monersono.wav-b6677a9f5171be61f33563064ab2acc9.sample"
+
+[deps]
+
+source_file="res://sonoj/monersono.wav"
+source_md5="e78abfd1d15e05c179ecd0a4cc58ce61"
+
+dest_files=[ "res://.import/monersono.wav-b6677a9f5171be61f33563064ab2acc9.sample" ]
+dest_md5="cc80f5d7e2522106e74367b99d186974"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

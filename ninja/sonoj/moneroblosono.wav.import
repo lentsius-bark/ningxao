@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/moneroblosono.wav-32d927a0d72261bd0d35628e402eff56.sample"
+
+[deps]
+
+source_file="res://sonoj/moneroblosono.wav"
+source_md5="8742b89333dabd3fdf733fd97816a9ac"
+
+dest_files=[ "res://.import/moneroblosono.wav-32d927a0d72261bd0d35628e402eff56.sample" ]
+dest_md5="6df653e1bc06137893891db364225af7"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
