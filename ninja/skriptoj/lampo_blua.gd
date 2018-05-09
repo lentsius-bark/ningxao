@@ -1,12 +1,12 @@
 extends Sprite
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+export var sxaltita = false
+export var sxalttempo = 0.1
+
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
+	if sxaltita == true:
+		$sono.play(0.0)
 	pass
 
 #func _process(delta):
@@ -14,6 +14,26 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
+func sxalti():
+	#sxaltigxi kaj forigi nebezonatajn aferojn
+	sxaltita = true
+	$sxaltigxsono.play(0.0)
+	$lumo.set_visible(1)
+	$sono.play(0.0)
+	$loko2D.queue_free()
 
 func _on_AudioStreamPlayer2D_finished():
 	$sono.play(0.1)
+
+
+func _on_loko2D_body_entered(body):
+	print("povas_sxalti")
+	body.sxaltebligi(self)
+
+
+func _on_loko2D_body_exited(body):
+	body.malsxaltebligi(self)
+
+
+func _on_sxaltigxsono_finished():
+	$sxaltigxsono.queue_free()

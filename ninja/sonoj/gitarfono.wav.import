@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gitarfono.wav-4ecfc7c23f43ffbf4b8eb691f08cc238.sample"
+
+[deps]
+
+source_file="res://sonoj/gitarfono.wav"
+source_md5="ff743ce4210f51bd15ac949811c7d7c1"
+
+dest_files=[ "res://.import/gitarfono.wav-4ecfc7c23f43ffbf4b8eb691f08cc238.sample" ]
+dest_md5="db1049f725d296df8c1bd94e210e6e13"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

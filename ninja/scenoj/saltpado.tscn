@@ -11,7 +11,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 3.375, 3.40767 )
 
-[node name="saltpado" type="StaticBody2D" index="0"]
+[node name="saltpado" type="StaticBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -63,7 +63,7 @@ shape = SubResource( 1 )
 [node name="sono" type="AudioStreamPlayer2D" parent="." index="5"]
 
 stream = ExtResource( 5 )
-volume_db = 0.0
+volume_db = -5.0
 autoplay = false
 max_distance = 500.0
 attenuation = 1.0

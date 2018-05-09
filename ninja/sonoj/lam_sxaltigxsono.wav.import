@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lam_sxaltigxsono.wav-009910b91ca45e90879f21ff0450f11b.sample"
+
+[deps]
+
+source_file="res://sonoj/lam_sxaltigxsono.wav"
+source_md5="25950269b61d6ec00a2b9fbc5beaba59"
+
+dest_files=[ "res://.import/lam_sxaltigxsono.wav-009910b91ca45e90879f21ff0450f11b.sample" ]
+dest_md5="8e7107eb838b4b1baa648f68b71f1520"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

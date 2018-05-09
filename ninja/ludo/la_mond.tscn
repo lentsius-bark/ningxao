@@ -1,14 +1,17 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://grafikajxoj/fono.png" type="Texture" id=1]
-[ext_resource path="res://skriptoj/fono.gd" type="Script" id=2]
-[ext_resource path="res://scenoj/fona_kontajnero.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenoj/ningxao.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenoj/planedo.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenoj/tusxebla_kontajnero.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenoj/saltpado.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenoj/lampo_blua.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenoj/monero.tscn" type="PackedScene" id=9]
+[ext_resource path="res://skriptoj/la_mond.gd" type="Script" id=1]
+[ext_resource path="res://grafikajxoj/fono.png" type="Texture" id=2]
+[ext_resource path="res://skriptoj/fono.gd" type="Script" id=3]
+[ext_resource path="res://scenoj/fona_kontajnero.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenoj/ningxao.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenoj/uzi_gui.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenoj/planedo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenoj/tusxebla_kontajnero.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenoj/saltpado.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenoj/lampo_blua.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenoj/monero.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sonoj/gitarfono.wav" type="AudioStream" id=12]
 
 [sub_resource type="Environment" id=1]
 
@@ -92,26 +95,34 @@ _sections_unfolded = [ "Glow" ]
 [node name="la_mond" type="Node2D"]
 
 position = Vector2( 488.325, 340.048 )
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="fono" type="Sprite" parent="." index="0"]
 
 position = Vector2( 152.122, -94.4344 )
 scale = Vector2( 299.956, 167.204 )
-texture = ExtResource( 1 )
-script = ExtResource( 2 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Region", "Transform" ]
 
-[node name="fona_kontajnero" parent="." index="1" instance=ExtResource( 3 )]
+[node name="fona_kontajnero" parent="." index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 29.5784, -9.77911 )
 rotation = -1.0472
 
-[node name="ningxao" parent="." index="2" instance=ExtResource( 4 )]
+[node name="ningxao" parent="." index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 160.201, -102.978 )
 
-[node name="Camera2D" type="Camera2D" parent="ningxao" index="3"]
+[node name="GUI" parent="ningxao" index="0" instance=ExtResource( 6 )]
+
+margin_left = 9.0
+margin_top = -61.0
+margin_right = 9.0
+margin_bottom = -61.0
+
+[node name="Camera2D" type="Camera2D" parent="ningxao" index="4"]
 
 position = Vector2( 0.422791, 0.173996 )
 anchor_mode = 1
@@ -140,36 +151,37 @@ _sections_unfolded = [ "Editor", "Smoothing", "Transform" ]
 
 [node name="planedo" parent="." index="3" groups=[
 "planedoj",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 7 )]
 
+editor/display_folded = true
 position = Vector2( 160.64, 64.9391 )
 collision_layer = 3
 _sections_unfolded = [ "Collision" ]
 
-[node name="tusxebla_kontajnero" parent="planedo" index="2" instance=ExtResource( 6 )]
+[node name="tusxebla_kontajnero" parent="planedo" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 135.47, 1.61237 )
 rotation = 1.5708
 collision_layer = 3
 _sections_unfolded = [ "Collision" ]
 
-[node name="saltpado" parent="planedo" index="3" instance=ExtResource( 7 )]
+[node name="saltpado" parent="planedo" index="3" instance=ExtResource( 9 )]
 
 position = Vector2( 117.42, -66.9459 )
 rotation = 1.0472
 
-[node name="lampo_blua" parent="planedo" index="4" instance=ExtResource( 8 )]
+[node name="lampo_blua" parent="planedo" index="4" instance=ExtResource( 10 )]
 
 position = Vector2( -0.501038, -184.72 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="lampo_blua2" parent="planedo" index="5" instance=ExtResource( 8 )]
+[node name="lampo_blua2" parent="planedo" index="5" instance=ExtResource( 10 )]
 
 position = Vector2( -176.328, -63.7202 )
 rotation = -1.309
 _sections_unfolded = [ "Transform" ]
 
-[node name="monero" parent="planedo" index="6" instance=ExtResource( 9 )]
+[node name="monero" parent="planedo" index="6" instance=ExtResource( 11 )]
 
 position = Vector2( 192.516, 1.01578 )
 rotation = 1.5708
@@ -178,19 +190,19 @@ _sections_unfolded = [ "Transform" ]
 obla = true
 valoro = 20
 
-[node name="monero2" parent="planedo" index="7" instance=ExtResource( 9 )]
+[node name="monero2" parent="planedo" index="7" instance=ExtResource( 11 )]
 
 position = Vector2( -156.544, -0.961243 )
 rotation = 1.5708
 _sections_unfolded = [ "Transform" ]
 
-[node name="monero3" parent="planedo" index="8" instance=ExtResource( 9 )]
+[node name="monero3" parent="planedo" index="8" instance=ExtResource( 11 )]
 
 position = Vector2( -142.705, -81.5251 )
 rotation = 2.06967
 _sections_unfolded = [ "Transform" ]
 
-[node name="monero4" parent="planedo" index="9" instance=ExtResource( 9 )]
+[node name="monero4" parent="planedo" index="9" instance=ExtResource( 11 )]
 
 position = Vector2( -85.3707, -136.635 )
 rotation = 2.61934
@@ -198,165 +210,168 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="planedo2" parent="." index="4" groups=[
 "planedoj",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 7 )]
 
+editor/display_folded = true
 position = Vector2( 660.64, -55.0609 )
 scale = Vector2( 1.5, 1.5 )
 collision_layer = 3
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="saltpado" parent="planedo2" index="2" instance=ExtResource( 7 )]
+[node name="saltpado" parent="planedo2" index="2" instance=ExtResource( 9 )]
 
 editor/display_folded = true
 position = Vector2( 0.147644, -136.204 )
 scale = Vector2( 0.75, 0.75 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="monero" parent="planedo2/saltpado" index="6" instance=ExtResource( 9 )]
+[node name="monero" parent="planedo2/saltpado" index="6" instance=ExtResource( 11 )]
 
 position = Vector2( 0.659851, -42.8805 )
 
-[node name="monero2" parent="planedo2/saltpado" index="7" instance=ExtResource( 9 )]
+[node name="monero2" parent="planedo2/saltpado" index="7" instance=ExtResource( 11 )]
 
 position = Vector2( 0.659851, -87.325 )
 
-[node name="monero3" parent="planedo2/saltpado" index="8" instance=ExtResource( 9 )]
+[node name="monero3" parent="planedo2/saltpado" index="8" instance=ExtResource( 11 )]
 
 position = Vector2( 0.659851, -131.769 )
 
-[node name="monero4" parent="planedo2/saltpado" index="9" instance=ExtResource( 9 )]
+[node name="monero4" parent="planedo2/saltpado" index="9" instance=ExtResource( 11 )]
 
 position = Vector2( 0.659851, -176.214 )
 
-[node name="monero5" parent="planedo2/saltpado" index="10" instance=ExtResource( 9 )]
+[node name="monero5" parent="planedo2/saltpado" index="10" instance=ExtResource( 11 )]
 
 position = Vector2( 0.659851, -220.658 )
 
-[node name="monero6" parent="planedo2/saltpado" index="11" instance=ExtResource( 9 )]
+[node name="monero6" parent="planedo2/saltpado" index="11" instance=ExtResource( 11 )]
 
 position = Vector2( 0.659851, -265.103 )
 
-[node name="saltpado2" parent="planedo2" index="3" instance=ExtResource( 7 )]
+[node name="saltpado2" parent="planedo2" index="3" instance=ExtResource( 9 )]
 
 position = Vector2( 136.233, 3.50638 )
 rotation = 1.60445
 scale = Vector2( 0.75, 0.75 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="monero" parent="planedo2/saltpado2" index="6" instance=ExtResource( 9 )]
+[node name="monero" parent="planedo2/saltpado2" index="6" instance=ExtResource( 11 )]
 
 position = Vector2( 1.88065, -40.7261 )
 
-[node name="monero2" parent="planedo2/saltpado2" index="7" instance=ExtResource( 9 )]
+[node name="monero2" parent="planedo2/saltpado2" index="7" instance=ExtResource( 11 )]
 
 position = Vector2( 2.45198, -103.003 )
 
-[node name="monero3" parent="planedo2/saltpado2" index="8" instance=ExtResource( 9 )]
+[node name="monero3" parent="planedo2/saltpado2" index="8" instance=ExtResource( 11 )]
 
 position = Vector2( 2.9934, -166.168 )
 
-[node name="monero4" parent="planedo2/saltpado2" index="9" instance=ExtResource( 9 )]
+[node name="monero4" parent="planedo2/saltpado2" index="9" instance=ExtResource( 11 )]
 
 position = Vector2( 3.62455, -226.668 )
 
 [node name="planedo3" parent="." index="5" groups=[
 "planedoj",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 7 )]
 
+editor/display_folded = true
 position = Vector2( 1320.97, -39.2447 )
 rotation = 2.89723
 collision_layer = 3
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="saltpado3" parent="planedo3" index="2" instance=ExtResource( 7 )]
+[node name="saltpado3" parent="planedo3" index="2" instance=ExtResource( 9 )]
 
 position = Vector2( 66.439, -118.239 )
 rotation = 0.528087
 scale = Vector2( 1.125, 1.125 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="monero" parent="planedo3/saltpado3" index="6" instance=ExtResource( 9 )]
+[node name="monero" parent="planedo3/saltpado3" index="6" instance=ExtResource( 11 )]
 
 position = Vector2( 1.88065, -40.7261 )
 
-[node name="monero2" parent="planedo3/saltpado3" index="7" instance=ExtResource( 9 )]
+[node name="monero2" parent="planedo3/saltpado3" index="7" instance=ExtResource( 11 )]
 
 position = Vector2( 2.45198, -103.003 )
 
-[node name="monero3" parent="planedo3/saltpado3" index="8" instance=ExtResource( 9 )]
+[node name="monero3" parent="planedo3/saltpado3" index="8" instance=ExtResource( 11 )]
 
 position = Vector2( 2.9934, -166.168 )
 
-[node name="monero4" parent="planedo3/saltpado3" index="9" instance=ExtResource( 9 )]
+[node name="monero4" parent="planedo3/saltpado3" index="9" instance=ExtResource( 11 )]
 
 position = Vector2( 3.62455, -226.668 )
 
-[node name="saltpado" parent="planedo3" index="3" instance=ExtResource( 7 )]
+[node name="saltpado" parent="planedo3" index="3" instance=ExtResource( 9 )]
 
 position = Vector2( -112.872, -73.5977 )
 rotation = -0.980349
 _sections_unfolded = [ "Transform" ]
 forteco = 6000
 
-[node name="monero" parent="planedo3/saltpado" index="6" instance=ExtResource( 9 )]
+[node name="monero" parent="planedo3/saltpado" index="6" instance=ExtResource( 11 )]
 
 position = Vector2( 0.101685, -53.6285 )
 
-[node name="monero2" parent="planedo3/saltpado" index="7" instance=ExtResource( 9 )]
+[node name="monero2" parent="planedo3/saltpado" index="7" instance=ExtResource( 11 )]
 
 position = Vector2( 1.18529, -139.062 )
 
-[node name="monero3" parent="planedo3/saltpado" index="8" instance=ExtResource( 9 )]
+[node name="monero3" parent="planedo3/saltpado" index="8" instance=ExtResource( 11 )]
 
 position = Vector2( 2.2689, -224.495 )
 
-[node name="monero4" parent="planedo3/saltpado" index="9" instance=ExtResource( 9 )]
+[node name="monero4" parent="planedo3/saltpado" index="9" instance=ExtResource( 11 )]
 
 position = Vector2( 1.84172, -320.014 )
 
-[node name="monero5" parent="planedo3/saltpado" index="10" instance=ExtResource( 9 )]
+[node name="monero5" parent="planedo3/saltpado" index="10" instance=ExtResource( 11 )]
 
 position = Vector2( 3.78908, -408.947 )
 
-[node name="monero6" parent="planedo3/saltpado" index="11" instance=ExtResource( 9 )]
+[node name="monero6" parent="planedo3/saltpado" index="11" instance=ExtResource( 11 )]
 
 position = Vector2( 4.87269, -494.381 )
 
-[node name="monero7" parent="planedo3/saltpado" index="12" instance=ExtResource( 9 )]
+[node name="monero7" parent="planedo3/saltpado" index="12" instance=ExtResource( 11 )]
 
 position = Vector2( 8.25388, -576.39 )
 
-[node name="lampo_blua" parent="planedo3" index="4" instance=ExtResource( 8 )]
+[node name="lampo_blua" parent="planedo3" index="4" instance=ExtResource( 10 )]
 
 position = Vector2( -54.3951, 175.959 )
 rotation = -2.87097
 
-[node name="fona_kontajnero" parent="planedo3" index="5" instance=ExtResource( 3 )]
+[node name="fona_kontajnero" parent="planedo3" index="5" instance=ExtResource( 4 )]
 
 position = Vector2( -61.6226, 136.923 )
 rotation = -2.71819
 
-[node name="monero" parent="planedo3" index="6" instance=ExtResource( 9 )]
+[node name="monero" parent="planedo3" index="6" instance=ExtResource( 11 )]
 
 position = Vector2( -143.053, 79.433 )
 rotation = 1.0784
 
-[node name="monero2" parent="planedo3" index="7" instance=ExtResource( 9 )]
+[node name="monero2" parent="planedo3" index="7" instance=ExtResource( 11 )]
 
 position = Vector2( -166.955, 3.68695 )
 rotation = 1.61393
 
 [node name="planedo4" parent="." index="6" groups=[
 "planedoj",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 7 )]
 
+editor/display_folded = true
 position = Vector2( 2143.41, 395.701 )
 rotation = 1.17775
 scale = Vector2( 1.5, 1.5 )
 collision_layer = 3
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="saltpado" parent="planedo4" index="2" instance=ExtResource( 7 )]
+[node name="saltpado" parent="planedo4" index="2" instance=ExtResource( 9 )]
 
 position = Vector2( -112.872, -73.5977 )
 rotation = -0.980349
@@ -364,7 +379,7 @@ scale = Vector2( 0.75, 0.75 )
 _sections_unfolded = [ "Transform" ]
 forteco = 6000
 
-[node name="saltpado2" parent="planedo4" index="3" instance=ExtResource( 7 )]
+[node name="saltpado2" parent="planedo4" index="3" instance=ExtResource( 9 )]
 
 position = Vector2( -110.45, 79.7189 )
 rotation = -2.18939
@@ -375,5 +390,23 @@ forteco = 6000
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="7"]
 
 environment = SubResource( 1 )
+
+[node name="fongitaro" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 12 )
+volume_db = -20.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="aperi" from="ningxao" to="ningxao/GUI" method="_on_ningxao_aperi"]
+
+[connection signal="malaperi" from="ningxao" to="ningxao/GUI" method="_on_ningxao_malaperi"]
+
+[connection signal="sxaltante" from="ningxao" to="ningxao/GUI" method="_on_ningxao_sxaltante"]
+
+[connection signal="sxaltinte" from="ningxao" to="ningxao/GUI" method="_on_ningxao_sxaltinte"]
+
+[connection signal="finished" from="fongitaro" to="." method="_on_fongitaro_finished"]
 
 

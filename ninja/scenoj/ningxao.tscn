@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://skriptoj/ningxao.gd" type="Script" id=1]
 [ext_resource path="res://grafikajxoj/ningxao.png" type="Texture" id=2]
@@ -15,13 +15,93 @@ extents = Vector2( 5.0476, 13.9778 )
 custom_solver_bias = 0.0
 radius = 300.0
 
-[node name="ningxao" type="KinematicBody2D"]
+[sub_resource type="Curve" id=3]
+
+min_value = -360.0
+max_value = 360.0
+bake_resolution = 100
+_data = [ Vector2( 0, 46.4062 ), 0.0, 0.0, 0, 0, Vector2( 1, -38.6718 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 2048
+curve = SubResource( 3 )
+
+[sub_resource type="Gradient" id=5]
+
+offsets = PoolRealArray( 0.0765766, 1 )
+colors = PoolColorArray( 0.095459, 0.418898, 0.53125, 1, 1, 0.899872, 0.246094, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+
+flags = 4
+gradient = SubResource( 5 )
+width = 2048
+
+[sub_resource type="Curve" id=7]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.467773 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+
+flags = 4
+width = 2048
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 4, 10, 4 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 157.08
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 45.0
+angle_random = 0.21
+angle_curve = SubResource( 4 )
+scale = 8.0
+scale_random = 0.5
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 6 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Emission Shape", "Gravity", "Initial Velocity", "Orbit Velocity", "Radial Accel", "Scale", "Spread" ]
+
+[node name="ningxao" type="KinematicBody2D" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 25
+collision_mask = 9
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -74,6 +154,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D" type="Area2D" parent="." index="5"]
 
+visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -94,10 +175,41 @@ autoplay = true
 mix_target = 0
 bus = "vento"
 
+[node name="sxalttempilo" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="Partikloj" type="Particles2D" parent="." index="8"]
+
+emitting = false
+amount = 25
+lifetime = 0.3
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 9 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Time" ]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 
 [connection signal="finished" from="ventsono" to="." method="_on_ventsono_finished"]
+
+[connection signal="timeout" from="sxalttempilo" to="." method="_on_sxalttempilo_timeout"]
 
 

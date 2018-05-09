@@ -14,8 +14,6 @@ func _ready():
 
 func add_monero(valoro):
 	moneroj += valoro
-	print(moneroj)
 	
 func get_moneroj():
-	return(moneroj)
 	

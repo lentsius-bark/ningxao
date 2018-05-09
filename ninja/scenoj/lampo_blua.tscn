@@ -1,26 +1,79 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://grafikajxoj/lampo_blua.png" type="Texture" id=1]
 [ext_resource path="res://skriptoj/lampo_blua.gd" type="Script" id=2]
 [ext_resource path="res://sonoj/lampsono.wav" type="AudioStream" id=3]
+[ext_resource path="res://grafikajxoj/lampo_blua_lumo.png" type="Texture" id=4]
+[ext_resource path="res://sonoj/lam_sxaltigxsono.wav" type="AudioStream" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 19.1, 55 )
 
 [node name="lampo_blua" type="Sprite"]
 
 position = Vector2( 17, -48 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
+sxaltita = false
+sxalttempo = 0.1
 
 [node name="sono" type="AudioStreamPlayer2D" parent="." index="0"]
 
 position = Vector2( -0.375, -44.5 )
 stream = ExtResource( 3 )
 volume_db = 0.0
-autoplay = true
+autoplay = false
 max_distance = 100.0
 attenuation = 1.0
 bus = "lampoj"
 area_mask = 1
 
+[node name="lumo" type="Sprite" parent="." index="1"]
+
+visible = false
+position = Vector2( 2.625, 1.75 )
+z_index = 10
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="loko2D" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 8
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="kolizformo" type="CollisionShape2D" parent="loko2D" index="0"]
+
+position = Vector2( 0, -0.1875 )
+scale = Vector2( 1, 0.996767 )
+shape = SubResource( 1 )
+
+[node name="sxaltigxsono" type="AudioStreamPlayer2D" parent="." index="3"]
+
+position = Vector2( 0.25, 24.125 )
+stream = ExtResource( 5 )
+volume_db = -10.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
 [connection signal="finished" from="sono" to="." method="_on_AudioStreamPlayer2D_finished"]
+
+[connection signal="body_entered" from="loko2D" to="." method="_on_loko2D_body_entered"]
+
+[connection signal="body_exited" from="loko2D" to="." method="_on_loko2D_body_exited"]
+
+[connection signal="finished" from="sxaltigxsono" to="." method="_on_sxaltigxsono_finished"]
 
 
