@@ -10,7 +10,7 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	#aldonu la antauagorditan amason da moneroj al la globala skripto
-	globala.add_monero(valoro)
+	globala.aldoni_monerojn(valoro)
 	
 	#ludu monersonon lau la grandeco de la monero
 	if obla:

@@ -10,3 +10,7 @@ func _ready():
 
 func _on_fongitaro_finished():
 	$fongitaro.play(0.0)
+	
+func versxu_moneron(loko, valoro):
+	globala.add_monero(valoro)
+	pass
