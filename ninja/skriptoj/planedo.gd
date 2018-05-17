@@ -1,6 +1,6 @@
-extends Node
+extends StaticBody2D
 
-var moneroj = 0
+export var gravito = 9.8
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -11,9 +11,3 @@ func _ready():
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
-
-func aldoni_monerojn(valoro):
-	moneroj += valoro
-	
-func atingi_moneroj():
-	return(moneroj)

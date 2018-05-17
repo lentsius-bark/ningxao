@@ -8,4 +8,4 @@ func _ready():
 	pass
 
 func _process(delta):
-	set_global_position($"../ningxao".get_global_position())
+	set_global_position($"../../ningxao".get_global_position())
